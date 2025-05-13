@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { FiUsers, FiMapPin, FiMail, FiPhone, FiAward, FiTool, FiMessageCircle } from "react-icons/fi"
-import Footer from "../layouts/Footer"
 import logo from "../../assets/image2.png"
 import EquipoCard from "../equipo-card"
 

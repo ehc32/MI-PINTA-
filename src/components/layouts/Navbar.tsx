@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { FiChevronDown, FiMenu, FiUser, FiX } from "react-icons/fi"
+import {  FiMenu, FiUser, FiX } from "react-icons/fi"
 import { navigationLinks, siteConfig } from "../../services/backup-data"
 import logo from "../../assets/image2.png"
 import { Link } from "react-router-dom"

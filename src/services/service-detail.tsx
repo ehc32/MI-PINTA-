@@ -23,7 +23,7 @@ const ServiceDetail = ({ id, onBack }: ServiceDetailProps) => {
       try {
         const serviceData = await fetchServiceById(id)
         setService(serviceData)
-        if (serviceData.images && serviceData.images.length > 0) {
+        if (serviceData?.images && serviceData.images.length > 0) {
           setActiveImage(serviceData.images[0])
         }
         setError(null)

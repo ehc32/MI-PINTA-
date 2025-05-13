@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { FiFacebook, FiGithub, FiGlobe, FiInstagram, FiSlack, FiTwitter, FiYoutube } from 'react-icons/fi';
+import { FiFacebook, FiGlobe, FiInstagram , FiYoutube } from 'react-icons/fi';
 import logo from '../../assets/iamge.jpg'; // tu logo verdadero
 
 class Footer extends Component {

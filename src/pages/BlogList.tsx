@@ -4,7 +4,6 @@ import type React from "react"
 
 import { useEffect, useState } from "react"
 import { fetchProductById, type Product } from "../services/api"
-import { FaStar } from "react-icons/fa"
 import { siteConfig } from "../services/data/site-config"
 import ImageCarousel from "../components/ImageCarousel"
 import { PriceDisplay } from "../components/price-display"

@@ -1,8 +1,6 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { FiChevronRight } from "react-icons/fi"
-import { FaWhatsapp } from "react-icons/fa"
 import { siteConfig } from "../services/data/site-config"
 import { Service } from "../services/types"
 import { fetchServiceById } from "../services/api"

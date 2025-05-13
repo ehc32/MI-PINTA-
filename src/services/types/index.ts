@@ -42,4 +42,12 @@ export interface Product {
       twitter: string
     }
   }
+  export type ProductReview = {
+  id: number;
+  productId: number;
+  rating: number;
+  comment: string;
+  user: string;
+};
+  
   

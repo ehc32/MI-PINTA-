@@ -1,6 +1,6 @@
 import { services } from "./data/services"
 import { products } from "./data/products"
-import { Product, Service } from "./types"
+import { Product, ProductReview, Service } from "./types"
 
 // Función para obtener productos
 export async function fetchProducts(): Promise<Product[]> {
@@ -46,6 +46,18 @@ export async function fetchServiceById(id: string): Promise<Service | null> {
 }
 
 
+const reviews: ProductReview[] = [
+  { id: 1, productId: 1, rating: 5, comment: "Excelente producto", user: "John Doe" },
+  { id: 2, productId: 2, rating: 4, comment: "Muy bueno", user: "Jane Smith" },
+];
 
+export async function fetchProductReviews(productId: number): Promise<ProductReview[]> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const productReviews = reviews.filter((review) => review.productId === productId);
+      resolve(productReviews);
+    }, 300);
+  });
+}
 // Re-exportamos los tipos para facilitar su uso
 export type { Product, Service }

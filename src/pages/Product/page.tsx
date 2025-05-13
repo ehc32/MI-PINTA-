@@ -5,7 +5,7 @@ import { FiChevronRight } from "react-icons/fi"
 import { FaWhatsapp } from "react-icons/fa"
 import { Product } from "../../services/types"
 import { siteConfig } from "../../services/data/site-config"
-import { fetchProducts } from "../../services/api"
+import { fetchProducts } from '../../services/api';
 import Breadcumb from "../../components/Breadcumb"
 import { PriceDisplay } from "../../components/price-display"
 import ImageCarousel from "../../components/ImageCarousel"

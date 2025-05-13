@@ -1,122 +1,81 @@
 import { Component } from 'react';
-import { FiFacebook, FiGithub, FiGlobe, FiSlack, FiTwitter } from 'react-icons/fi';
-import logo from '../../assets/react.svg';
+import { FiFacebook, FiGithub, FiGlobe, FiInstagram, FiSlack, FiTwitter, FiYoutube } from 'react-icons/fi';
+import logo from '../../assets/iamge.jpg'; // tu logo verdadero
 
 class Footer extends Component {
-    render() {
-        return (
-          <div>
-            <div className="bg-gray-900 w-full">
-              <div className="w-full max-w-[75rem] py-10 px-4 sm:px-6 lg:px-8 lg:pt-20 mx-auto">
-                <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
-                  <div className="col-span-full lg:col-span-1">
-                     <a className="flex-none text-xl font-semibold" href="/" aria-label="Brand">
-                      <div className="flex items-center gap-x-2 font-medium text-gray-100 hover:text-gray-300">
-                        <img src={logo} alt="logo" />
-                        React
-                      </div> 
-                    </a>
-                  </div>
-                  <div className="col-span-1">
-                    <h4 className="font-semibold text-gray-100">Product</h4>
-                    <div className="mt-3 grid space-y-3">
-                      <p>
-                        <a className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200"
-                          href="https://tailwindcss.com/">
-                          Tailwind {" "}
-                          <span className="inline ms-1 text-xs bg-blue-700 text-white py-1 px-2 rounded-lg">
-                            CSS
-                          </span>
-                        </a>
-                      </p>
-                      <p>
-                        <a className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200"
-                          href="https://preline.co/" target="_blank">
-                          Preline UI {" "}
-                          <span className="inline ms-1 text-xs bg-blue-700 text-white py-1 px-2 rounded-lg">
-                            Component
-                          </span>
-                        </a>
-                      </p>
-                      <p>
-                        <a className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200"
-                          href="https://react.dev/" target="_blank">
-                          React {" "}
-                          <span className="inline ms-1 text-xs bg-blue-700 text-white py-1 px-2 rounded-lg">
-                            Library
-                          </span>
-                        </a>
-                      </p>
-                      <p>
-                        <a className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200"
-                          href="https://github.com/indrakuu/preline-react" target="_blank">
-                          Github {" "}
-                          <span className="inline ms-1 text-xs bg-blue-700 text-white py-1 px-2 rounded-lg">
-                            Download
-                          </span>
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-span-1">
-                    <h4 className="font-semibold text-gray-100">Company</h4>
-                    <div className="mt-3 grid space-y-3">
-                      <p>
-                        <a className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200"
-                          href="/about">
-                          About
-                        </a>
-                      </p>
-                      <p>
-                        <a className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200"
-                          href="/list-blog">
-                          Blog
-                        </a>
-                      </p>
-                      <p>
-                        <a className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200"
-                          href="/gallery">
-                          Gallery
-                        </a>
-                      </p>
-                      <p>
-                        <a className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200"
-                          href="/term-and-conditions">
-                          Terms of Service
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-5 sm:mt-12 grid gap-y-2 sm:gap-y-0 sm:flex sm:justify-between sm:items-center">
-                  <div className="flex justify-between items-center">
-                    <p className="text-sm text-gray-400">
-                      © 2024 Indra Kurniawan. All rights reserved.
-                    </p>
-                  </div>
-                  <div>
-                    <a className="w-10 h-10 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-white hover:bg-white/10 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-1 focus:ring-gray-600"href="https://www.facebook.com/" target="_blank">
-                      <FiFacebook className="flex-shrink-0 w-4 h-4" />
-                    </a>
-                    <a className="w-10 h-10 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-white hover:bg-white/10 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-1 focus:ring-gray-600" href="https://www.infobangindra.my.id/" target="_blank">
-                      <FiGlobe className="flex-shrink-0 w-4 h-4" />
-                    </a>
-                    <a className="w-10 h-10 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-white hover:bg-white/10 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-1 focus:ring-gray-600" href="https://twitter.com/" target="_blank">
-                      <FiTwitter className="flex-shrink-0 w-4 h-4" />
-                    </a>
-                    <a className="w-10 h-10 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-white hover:bg-white/10 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-1 focus:ring-gray-600" href="https://github.com/indrakuu/preline-react" target="_blank">
-                      <FiGithub className="flex-shrink-0 w-4 h-4" />
-                    </a>
-                    <a className="w-10 h-10 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-white hover:bg-white/10 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-1 focus:ring-gray-600" href="https://slack.com/" target="_blank">
-                      <FiSlack className="flex-shrink-0 w-4 h-4" />
-                    </a>
-                  </div>
+  render() {
+    return (
+      <div className="bg-gray-900 w-full text-white">
+        <footer className="border-t border-gray-700 py-8 md:py-12">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-8 md:flex-row md:justify-between">
+
+            {/* Logo y descripción */}
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-3">
+                <img src={logo} alt="Mi PINTA Logo" className="h-14 w-14 rounded-full object-cover" />
+                <span className="text-2xl font-bold">Mi PINTA</span>
+              </div>
+              <p className="text-sm text-gray-300">
+                Servicio profesional de lavandería para particulares y empresas.
+              </p>
+            </div>
+
+            {/* Navegación, Contacto y Redes */}
+            <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+
+              {/* Navegación */}
+              <div className="flex flex-col gap-2">
+                <h3 className="text-lg font-semibold mb-2">Navegación</h3>
+                <a href="#inicio" className="text-sm text-gray-300 hover:text-white transition">Inicio</a>
+                <a href="#quienes-somos" className="text-sm text-gray-300 hover:text-white transition">Quiénes Somos</a>
+                <a href="#servicios-productos" className="text-sm text-gray-300 hover:text-white transition">Servicios y Productos</a>
+                <a href="#contacto" className="text-sm text-gray-300 hover:text-white transition">Contacto</a>
+              </div>
+
+              {/* Contacto */}
+              <div className="flex flex-col gap-2">
+                <h3 className="text-lg font-semibold mb-2">Contacto</h3>
+                <span className="text-sm text-gray-300">+57 310 5739097</span>
+                <span className="text-sm text-gray-300">info@mipinta.com</span>
+                <span className="text-sm text-gray-300"> Cl. 9a #9-28 Ofic 302, Neiva, Huila</span>
+              </div>
+
+              {/* Redes sociales */}
+              <div className="flex flex-col gap-2">
+                <h3 className="text-lg font-semibold mb-2">Síguenos</h3>
+                <div className="flex gap-4">
+                  <a href="https://www.facebook.com/share/1Bu2jGVjSz/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">
+                    <FiFacebook className="h-5 w-5" />
+                    <span className="sr-only">Facebook</span>
+                  </a>
+                  <a href="https://www.instagram.com/lavanderiamipinta?igsh=YW5rdXRvb3U5cmNx" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">
+                    <FiInstagram className="h-5 w-5" />
+                    <span className="sr-only">Slack</span>
+                  </a>
+                  <a href="https://www.instagram.com/lavanderiamipinta?igsh=YW5rdXRvb3U5cmNx" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">
+                    <FiYoutube className="h-5 w-5" />
+                    <span className="sr-only">Slack</span>
+                  </a>
+                  <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">
+                    <FiGlobe className="h-5 w-5" />
+                    <span className="sr-only">Web</span>
+                  </a>
                 </div>
               </div>
+
             </div>
           </div>
-        );
-    }
+
+          {/* Copyright */}
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-gray-700">
+            <p className="text-center text-xs text-gray-400">
+              © 2025 Mi PINTA. Todos los derechos reservados.
+            </p>
+          </div>
+        </footer>
+      </div>
+    );
+  }
 }
 
 export default Footer;

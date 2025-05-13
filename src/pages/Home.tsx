@@ -8,21 +8,20 @@ import Blog from '../components/sections/Blog';
 import Team from '../components/sections/Team';
 import Contact from '../components/sections/Contact';
 import Subscribe from '../components/sections/Subscribe';
+import Footer from '../components/layouts/Footer';
+import CompanyVideos from './CompanyVideos';
 
 const Home = () => {
     return (
-        <div>
-            <Header />
-            <Testimonial />
-            <About />
-            <Blog />
-            <Service />
-            <Pricing />
-            <Team />
-            <Faq />
-            <Contact />
-            <Subscribe />
-        </div>
+        <div className="bg-white">
+        <Header />
+{/*         <Testimonial />
+
+ */}    
+ <Testimonial />
+      <Blog />
+        <Contact />
+    </div>
     );
 };
 

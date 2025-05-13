@@ -1,38 +1,155 @@
-import { Component } from 'react';
-import { FiStar } from 'react-icons/fi';
+"use client"
 
-class Testimonial extends Component {
-    render() {
+import { useEffect, useRef, useState } from "react"
+import { Star, ChevronLeft, ChevronRight, User, MessageSquare, Calendar } from "lucide-react"
+import { testimonialsList } from "../../services/data/testimonials"
 
-      const testimonialList = [
-        { id: 1, name: 'Tripadvisor', image: 'https://cdn3.iconfinder.com/data/icons/social-media-2169/24/social_media_social_media_logo_tripadvisor-512.png', description: 'Truly great template and costumer support.', star: 5 },
-        { id: 2, name: 'Microsoft', image: 'https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/78-microsoft-512.png', description: 'The best one I\'ve ever come across.', star: 4 },
-        { id: 3, name: 'Pepsi', image: 'https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/49-pepsi-512.png', description: 'This is a truly beautiful template.', star: 5 },
-        { id: 4, name: 'Dribble', image: 'https://cdn3.iconfinder.com/data/icons/social-media-2169/24/social_media_social_media_logo_dribbble-512.png', description: 'There one theme that you want.', star: 4 },
-        { id: 5, name: 'LinkedIn', image: 'https://cdn4.iconfinder.com/data/icons/social-media-flat-7/64/Social-media_LinkedIn-512.png', description: 'Great design and thorough documentation.', star: 5 }
-      ];
-        return (
-          <div className="max-w-[75rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-            <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 md:gap-20 md:grid-cols-3 lg:grid-cols-5 lg:gap-8">
-              {testimonialList.map((item) => (
-                <div className="text-center" key={item.id}>
-                  <img src={item.image} alt="" className="w-auto h-16 mx-auto" />
-                  <div className="mt-2 sm:mt-6">
-                    <p className="text-gray-800">
-                      {item.description}
-                    </p>
+const TestimonialsCarousel = () => {
+  const carouselRef = useRef<HTMLDivElement>(null)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
+
+  // Determinar cuántos elementos mostrar según el ancho de la pantalla
+  const [itemsToShow, setItemsToShow] = useState(3)
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setItemsToShow(1)
+      } else if (window.innerWidth < 1024) {
+        setItemsToShow(2)
+      } else {
+        setItemsToShow(3)
+      }
+    }
+
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
+  // Auto-scroll del carrusel
+  useEffect(() => {
+    if (isPaused) return
+
+    const interval = setInterval(() => {
+      nextSlide()
+    }, 5000) // Tiempo más largo para leer testimonios
+
+    return () => clearInterval(interval)
+  }, [currentIndex, isPaused, itemsToShow])
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1 >= testimonialsList.length - (itemsToShow - 1) ? 0 : prevIndex + 1))
+  }
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 < 0 ? testimonialsList.length - itemsToShow : prevIndex - 1))
+  }
+
+  return (
+    <div className="bg-gray-50 py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Encabezado de sección */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">Lo que dicen nuestros clientes</h2>
+          <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+            Testimonios de clientes satisfechos con nuestros servicios de limpieza profesional
+          </p>
+        </div>
+
+        {/* Carrusel de testimonios */}
+        <div className="relative">
+          <div
+            className="overflow-hidden"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            <div
+              ref={carouselRef}
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * (100 / itemsToShow)}%)` }}
+            >
+              {testimonialsList.map((testimonial) => (
+                <div key={testimonial.id} className="flex-shrink-0 px-3" style={{ width: `${100 / itemsToShow}%` }}>
+                  <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:border-blue-200 h-full flex flex-col">
+                    <div className="mb-4">
+                      <MessageSquare className="h-8 w-8 text-blue-500 mb-2" />
+                      <p className="text-gray-700 italic mb-4">"{testimonial.testimonial}"</p>
+
+                      {testimonial.date && (
+                        <div className="flex items-center text-sm text-gray-500 mb-4">
+                          <Calendar className="h-4 w-4 mr-1" />
+                          <span>{testimonial.date}</span>
+                        </div>
+                      )}
+
+                      <div className="flex items-center mt-auto pt-4 border-t border-gray-100">
+                        <div className="bg-blue-100 p-2 rounded-full flex-shrink-0">
+                          {testimonial.avatar ? (
+                            <img
+                              src={testimonial.avatar || "/placeholder.svg"}
+                              alt={testimonial.name}
+                              className="w-10 h-10 rounded-full object-cover"
+                            />
+                          ) : (
+                            <User className="h-10 w-10 text-blue-500 p-1" />
+                          )}
+                        </div>
+                        <div className="ml-3">
+                          <h4 className="font-medium text-gray-800">{testimonial.name}</h4>
+                          <p className="text-sm text-gray-500">{testimonial.service}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="mt-auto">
+                      <div className="flex">
+                        {[...Array(testimonial.rating)].map((_, index) => (
+                          <Star key={index} className="h-4 w-4 text-yellow-400 fill-yellow-400" />
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex-shrink-0 flex justify-center space-x-1 mt-3">
-                    {[...Array(item.star)].map((_, index) => (
-                      <FiStar key={index} className="h-4 w-4 text-blue-500" fill="currentColor" />
-                    ))}
-                  </div>
-                  </div>
+                </div>
               ))}
             </div>
           </div>
-        );
-    }
+
+          {/* Controles del carrusel */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-white rounded-full p-2 shadow-lg border border-gray-200 hover:bg-blue-50 transition-colors z-10"
+            aria-label="Anterior"
+          >
+            <ChevronLeft className="h-6 w-6 text-blue-600" />
+          </button>
+
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 bg-white rounded-full p-2 shadow-lg border border-gray-200 hover:bg-blue-50 transition-colors z-10"
+            aria-label="Siguiente"
+          >
+            <ChevronRight className="h-6 w-6 text-blue-600" />
+          </button>
+
+          {/* Indicadores */}
+          <div className="flex justify-center mt-8 gap-2">
+            {Array.from({ length: testimonialsList.length - (itemsToShow - 1) }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`h-2 rounded-full transition-all ${
+                  currentIndex === index ? "w-8 bg-blue-600" : "w-2 bg-gray-300"
+                }`}
+                aria-label={`Ir a slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
 
-export default Testimonial;
+export default TestimonialsCarousel

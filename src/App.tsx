@@ -9,17 +9,17 @@ import Footer from './components/layouts/Footer';
 
 import Home from './pages/Home';
 import BlogDetail from './pages/BlogDetail';
-import BlogList from './pages/BlogList';
 import TermAndConditions from './pages/TermAndConditions';
-import About from './pages/About';
 import Gallery from './pages/Gallery';
 import Page404 from './pages/errors/Page404';
 import Page500 from './pages/errors/Page500';
 import Maintenance from './pages/errors/Maintenance';
 
-import SignIn from './pages/auth/SignIn';
 import SignUp from './pages/auth/SignUp';
 import ForgotPassword from './pages/auth/ForgotPassword';
+import QuienesSomos from "./components/sections/quienes-somos";
+import ProductsPage from "./pages/Product/page";
+import ServicesPage from "./pages/service/page";
 
 
 declare global {
@@ -47,17 +47,19 @@ function App() {
           <div className="relative z-8">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path='/list-blog' element={<BlogList />} />
+              <Route path='/list-blog' element={<ProductsPage />} />
+              <Route path='/list-service' element={<ServicesPage />} />
+
               <Route path='/detail-blog' element={<BlogDetail />} />
-              <Route path="/sign-in" element={<SignIn />} />
               <Route path="/sign-up" element={<SignUp />} /> 
               <Route path="/404" element={<Page404 />} />
               <Route path="/500" element={<Page500 />} />
               <Route path="/maintenance" element={<Maintenance />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path='/term-and-conditions' element={<TermAndConditions />} />
-              <Route path='/about' element={<About />} />
               <Route path='/gallery' element={<Gallery />} />
+              <Route path="/Nosotros" element ={<QuienesSomos/>} />
+              
               <Route path="*" element={<Page404 />} />
             </Routes>
           </div>

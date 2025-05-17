@@ -1,4 +1,4 @@
-import {  LuSofa, LuBed, LuCar } from "react-icons/lu"
+import { LuSofa, LuBed, LuCar } from "react-icons/lu"
 import { FaChair } from "react-icons/fa"
 import { MdCleaningServices } from "react-icons/md"
 import { LucideSquarePercent } from "lucide-react"
@@ -8,7 +8,7 @@ export function getServiceIcon(serviceTitle: string | undefined) {
 
   const title = serviceTitle.toLowerCase()
 
-  if (title.includes("tapete")) return < size={64} />
+  if (title.includes("tapete")) return <LucideSquarePercent size={64} />
   if (title.includes("mueble") || title.includes("sofa")) return <LuSofa size={64} />
   if (title.includes("colchon")) return <LuBed size={64} />
   if (title.includes("silla")) return <FaChair size={64} />

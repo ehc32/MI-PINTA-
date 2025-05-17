@@ -5,16 +5,16 @@ export const siteConfig: SiteConfig = {
   name: "Lavandería Profesional",
   description: "Servicios de lavandería y limpieza profesional a domicilio",
   logo: "/placeholder.svg",
-  whatsappNumber: "+57 310 5739097",
+  whatsappNumber: "573105739097",
   email: "contacto@lavanderiaprofesional.com",
-  phone: "+57 310 5739097",
+  phone: "+57 3105739097",
   address: "Calle Principal #123, Ciudad",
   socialMedia: {
     facebook: "https://facebook.com/lavanderiaprofesional",
     instagram: "https://instagram.com/lavanderiaprofesional",
     twitter: "https://twitter.com/lavanderiapro",
   },
-}
+};
 
 // Datos para el header
 export const headerData = {
@@ -34,8 +34,7 @@ export const headerData = {
 export const navigationLinks = [
   { name: "Inicio", href: "/" },
   { name: "Productos", href: "/list-blog" },
-  { name: "Servicios", href: "/services" },
-  { name: "Contacto", href: "/contact" },
+  { name: "Servicios", href: "/list-service" },
 ]
 
 // Datos para el footer

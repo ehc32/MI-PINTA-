@@ -7,9 +7,7 @@ export const services: Service[] = [
     title: "Lavado de Tapetes",
     details:
       "Servicio profesional de lavado de tapetes con equipo especializado. Eliminamos manchas, ácaros y olores. Incluye recogida y entrega a domicilio.",
-    cost: 50000,
-    oldCost: 60000,
-    discount: 17,
+    
     user: "admin",
     images: ["https://cdn-icons-png.flaticon.com/512/2553/2553629.png"],
     videos: [],
@@ -31,10 +29,9 @@ export const services: Service[] = [
   },
   {
     _id: "2",
-    title: "Limpieza de Muebles",
+    title: "Lavado de Muebles",
     details:
       "Limpieza profunda de muebles y sofás con sistema de inyección-extracción. Eliminamos manchas y revitalizamos los colores de la tapicería.",
-    cost: 120000,
     user: "admin",
     images: ["https://cdn-icons-png.flaticon.com/512/2929/2929032.png"],
     videos: [],
@@ -59,9 +56,7 @@ export const services: Service[] = [
     title: "Lavado de Colchones",
     details:
       "Servicio especializado para la limpieza y desinfección de colchones. Eliminamos ácaros, bacterias y alérgenos. Ideal para personas con alergias.",
-    cost: 80000,
-    oldCost: 95000,
-    discount: 16,
+   
     user: "admin",
     images: ["https://cdn-icons-png.flaticon.com/512/3030/3030336.png"],
     videos: [],
@@ -79,6 +74,78 @@ export const services: Service[] = [
       "Limpieza con vapor a alta temperatura",
       "Extracción de residuos",
       "Secado y sanitización UV",
+    ],
+  },
+  {
+    _id: "4",
+    title: "Lavado de Sillas de Oficina",
+    details:
+      "Servicio especializado para la limpieza y desinfección de sillas de oficina. Eliminamos manchas, polvo acumulado y gérmenes de la tapicería.",
+    user: "admin",
+    images: ["https://cdn-icons-png.flaticon.com/512/2829/2829661.png"],
+    videos: [],
+    featured: false,
+    benefits: [
+      "Eliminación de manchas y suciedad",
+      "Desinfección completa",
+      "Mejora la apariencia y durabilidad",
+      "Servicio a domicilio",
+      "Secado rápido para uso inmediato",
+    ],
+    process: [
+      "Inspección inicial",
+      "Aspirado profundo",
+      "Aplicación de solución limpiadora",
+      "Limpieza con equipo especializado",
+      "Secado y finalización",
+    ],
+  },
+  {
+    _id: "5",
+    title: "Lavado de Tapicería de Vehículos",
+    details:
+      "Servicio profesional para la limpieza de asientos, alfombras y tapicería interior de vehículos. Eliminamos manchas difíciles y malos olores.",
+    user: "admin",
+    images: ["https://cdn-icons-png.flaticon.com/512/3097/3097180.png"],
+    videos: [],
+    featured: true,
+    benefits: [
+      "Eliminación de manchas profundas",
+      "Neutralización de olores",
+      "Tratamiento antibacteriano",
+      "Protección contra rayos UV",
+      "Servicio a domicilio",
+    ],
+    process: [
+      "Evaluación del estado de la tapicería",
+      "Aspirado profundo",
+      "Pre-tratamiento de manchas",
+      "Limpieza con sistema de inyección-extracción",
+      "Aplicación de protector y secado",
+    ],
+  },
+  {
+    _id: "6",
+    title: "Lavado de Cortinas",
+    details:
+      "Servicio especializado para la limpieza de cortinas de todo tipo sin necesidad de desmontar. Eliminamos polvo, ácaros y alérgenos acumulados.",
+    user: "admin",
+    images: ["https://cdn-icons-png.flaticon.com/512/1606/1606807.png"],
+    videos: [],
+    featured: false,
+    benefits: [
+      "Limpieza sin desmontar",
+      "Eliminación de polvo y alérgenos",
+      "Revitalización de colores",
+      "Tratamiento anti-estático",
+      "Servicio a domicilio",
+    ],
+    process: [
+      "Inspección del tipo de tela",
+      "Aspirado inicial",
+      "Aplicación de solución limpiadora específica",
+      "Limpieza con equipo especializado",
+      "Secado controlado",
     ],
   },
 ]

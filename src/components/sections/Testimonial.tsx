@@ -1,8 +1,24 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Star, ChevronLeft, ChevronRight, User, MessageSquare, Calendar } from "lucide-react"
+import { Star, ChevronLeft, ChevronRight, User, UserCircle, UserRound, UserCircle2, MessageSquare, Calendar } from 'lucide-react'
 import { testimonialsList } from "../../services/data/testimonials"
+
+// Función para obtener el icono correspondiente según el nombre
+const getAvatarIcon = (iconName: string) => {
+  switch (iconName) {
+    case "user":
+      return <User className="h-10 w-10 text-blue-500 p-1" />
+    case "user-circle":
+      return <UserCircle className="h-10 w-10 text-blue-500 p-1" />
+    case "user-round":
+      return <UserRound className="h-10 w-10 text-blue-500 p-1" />
+    case "user-circle-2":
+      return <UserCircle2 className="h-10 w-10 text-blue-500 p-1" />
+    default:
+      return <User className="h-10 w-10 text-blue-500 p-1" />
+  }
+}
 
 const TestimonialsCarousel = () => {
   const carouselRef = useRef<HTMLDivElement>(null)
@@ -86,15 +102,7 @@ const TestimonialsCarousel = () => {
 
                       <div className="flex items-center mt-auto pt-4 border-t border-gray-100">
                         <div className="bg-blue-100 p-2 rounded-full flex-shrink-0">
-                          {testimonial.avatar ? (
-                            <img
-                              src={testimonial.avatar || "/placeholder.svg"}
-                              alt={testimonial.name}
-                              className="w-10 h-10 rounded-full object-cover"
-                            />
-                          ) : (
-                            <User className="h-10 w-10 text-blue-500 p-1" />
-                          )}
+                          {getAvatarIcon(testimonial.avatar)}
                         </div>
                         <div className="ml-3">
                           <h4 className="font-medium text-gray-800">{testimonial.name}</h4>

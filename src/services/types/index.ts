@@ -17,7 +17,6 @@ export interface Product {
     _id: string
     title: string
     details: string
-    cost: number
     oldCost?: number
     discount?: number
     user: string

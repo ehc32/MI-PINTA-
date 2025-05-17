@@ -4,9 +4,8 @@ import type React from "react"
 
 import { useEffect, useState } from "react"
 import { fetchProductById, type Product } from "../services/api"
-import { siteConfig } from "../services/data/site-config"
-import ImageCarousel from "../components/ImageCarousel"
 import { PriceDisplay } from "../components/price-display"
+import { siteConfig } from "../services/data/site-config"
 
 interface ProductDetailsProps {
   productId: number | string
@@ -41,6 +40,14 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productId }) => {
         })
     }
   }, [productId])
+
+  // Función para verificar si una imagen es válida
+  const getValidImageUrl = (url: string | undefined): string => {
+    if (!url || typeof url !== 'string' || url.trim() === '') {
+      return '/placeholder.svg?height=300&width=400';
+    }
+    return url;
+  };
 
   // Función para renderizar las especificaciones técnicas
   const renderTechnicalSpecs = () => {
@@ -106,7 +113,6 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productId }) => {
 
   // Renderizar reseñas de productos
   const renderReviews = () => {
-
     return (
       <div className="mt-8 pt-6 border-t border-gray-100">
         <h4 className="font-semibold text-lg text-gray-800 mb-4">Opiniones de clientes</h4>
@@ -207,10 +213,25 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productId }) => {
           <div className="mb-4 flex justify-center">
             <div className="relative w-full h-80 sm:h-96 bg-gray-50 rounded-lg overflow-hidden border border-gray-100">
               {product.images && product.images.length > 0 ? (
-                <ImageCarousel images={product.images} autoplay={false} showControls={true} />
+                <img
+                  src={getValidImageUrl(activeImage || product.images[0])}
+                  alt={product.name || "Producto"}
+                  className="w-full h-full object-contain transition-all duration-300"
+                  onError={(e) => {
+                    console.error("Error al cargar imagen:", activeImage);
+                    e.currentTarget.src = "/placeholder.svg?height=400&width=600";
+                  }}
+                />
               ) : (
                 <div className="w-full h-full flex items-center justify-center">
                   <span className="text-gray-400">Sin imagen disponible</span>
+                </div>
+              )}
+              
+              {/* Badge de precio */}
+              {product.price !== undefined && product.price !== null && (
+                <div className="absolute top-4 right-4 bg-blue-600 text-white font-bold px-3 py-1 rounded-full shadow-lg">
+                  ${product.price.toLocaleString("es-CO")}
                 </div>
               )}
             </div>
@@ -228,9 +249,12 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productId }) => {
                   }`}
                 >
                   <img
-                    src={img || "/placeholder.svg"}
+                    src={getValidImageUrl(img) || "/placeholder.svg"}
                     alt={`${product.name} - vista ${index + 1}`}
                     className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = "/placeholder.svg?height=100&width=100";
+                    }}
                   />
                 </button>
               ))}

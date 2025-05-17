@@ -1,7 +1,7 @@
 import type React from "react"
 
 interface PriceDisplayProps {
-  currentPrice: number
+  currentPrice?: number
   oldPrice?: number
   discount?: number
   size?: "small" | "medium" | "large"
@@ -32,6 +32,11 @@ export const PriceDisplay: React.FC<PriceDisplayProps> = ({
     small: "text-xs font-medium bg-red-500 text-white px-1.5 py-0.5 rounded-full",
     medium: "text-sm font-medium bg-red-500 text-white px-2 py-0.5 rounded-full",
     large: "text-base font-medium bg-red-500 text-white px-2.5 py-1 rounded-full",
+  }
+
+  // If currentPrice is undefined, we can't proceed with calculations
+  if (currentPrice === undefined) {
+    return null; // Or return a placeholder/fallback UI
   }
 
   // Si hay descuento pero no hay oldPrice, calculamos el oldPrice

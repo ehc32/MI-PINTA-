@@ -3,7 +3,6 @@
 import { useState } from "react"
 import { FiUsers, FiMapPin, FiMail, FiPhone, FiAward, FiTool, FiMessageCircle } from "react-icons/fi"
 import logo from "../../assets/image2.png"
-import EquipoCard from "../equipo-card"
 
 const QuienesSomos = () => {
   const [activeTab, setActiveTab] = useState<"principios" | "tecnologia" | "contacto">("principios")
@@ -41,7 +40,7 @@ const QuienesSomos = () => {
                     </div>
                     <div>
                       <p className="text-xs font-medium text-gray-500">Nuestro equipo</p>
-                      <p className="text-sm font-bold text-gray-800">+10 años de experiencia</p>
+                      <p className="text-sm font-bold text-gray-800">%100 Satisfacción </p>
                     </div>
                   </div>
                 </div>
@@ -68,18 +67,7 @@ const QuienesSomos = () => {
                 <FiAward className={activeTab === "principios" ? "text-blue-600" : "text-gray-400"} />
                 Principios
               </button>
-              <button
-                onClick={() => setActiveTab("tecnologia")}
-                className={`px-6 py-4 text-sm font-medium transition-colors flex items-center gap-2
-                  ${
-                    activeTab === "tecnologia"
-                      ? "border-b-2 border-blue-600 text-blue-600"
-                      : "text-gray-600 hover:text-blue-600"
-                  }`}
-              >
-                <FiTool className={activeTab === "tecnologia" ? "text-blue-600" : "text-gray-400"} />
-                Tecnología
-              </button>
+             
               <button
                 onClick={() => setActiveTab("contacto")}
                 className={`px-6 py-4 text-sm font-medium transition-colors flex items-center gap-2
@@ -219,47 +207,7 @@ const QuienesSomos = () => {
           </div>
         )}
 
-        {/* Tecnología Tab */}
-        {activeTab === "tecnologia" && (
-          <div className="animate-fadeIn">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 mb-4">
-                <span className="text-sm font-medium text-blue-600">Tecnología</span>
-              </div>
-              <h2 className="text-3xl font-bold text-gray-800">Nuestro Equipo</h2>
-              <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-                Utilizamos equipos profesionales de última generación para garantizar resultados excepcionales en cada
-                servicio.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <EquipoCard
-                nombre="Limpiador De Muebles"
-                imagen="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyOlk59VO0b0vWN6Gp_rKdfP33VQCIgo6cLA&s"
-                descripcion="Equipo especializado para la limpieza profunda de muebles tapizados, eliminando manchas y ácaros."
-              />
-
-              <EquipoCard
-                nombre="Lava-Aspiradora KARCHER PUZZI 10/1"
-                imagen="https://m.media-amazon.com/images/I/71ShAjO0HAL._AC_UF894,1000_QL80_.jpg"
-                descripcion="Inyección y aspirado de agua con detergente. Capacidad de 25 m²/h, 54 lts/seg. Depósito de agua limpia 10lts/sucia 9lts."
-              />
-
-              <EquipoCard
-                nombre="Kärcher Limpiador a vapor SC 3 Easy Fix"
-                imagen="https://karchershop.com.mx/cdn/shop/products/sc-3-easy-fix-mx-208040.jpg?v=1735851498.png"
-                descripcion="Vaporizador eléctrico multiusos sin químicos, calentamiento de 40 segundos, ideal para lechada, azulejos, suelos duros y electrodomésticos."
-              />
-
-              <EquipoCard
-                nombre="Pistola De Hidrolavadora"
-                imagen="/images/pistola-hidrolavadora.jpg"
-                descripcion="Kit cañón de espuma para Karcher de 1L, perfecto para aplicar detergente de manera uniforme y eficiente."
-              />
-            </div>
-          </div>
-        )}
+        
 
         {/* Contacto Tab */}
         {activeTab === "contacto" && (

@@ -5,8 +5,8 @@ import { FaWhatsapp } from "react-icons/fa"
 import PrimaryButton from "../buttons/PrimaryButton"
 import { Link } from "react-router-dom"
 import SecondaryButton from "../buttons/SecondaryButton"
-import { headerData, siteConfig } from "../../services/backup-data"
 import logo from "../../assets/image2.png"
+import { headerData, siteConfig } from "../../services/data/site-config"
 
 const Header = () => {
   return (
@@ -40,7 +40,7 @@ const Header = () => {
                   Ver productos <FiChevronRight className="ml-2" />
                 </PrimaryButton>
               </Link>
-              <Link to="/services">
+              <Link to="/list-service">
                 <SecondaryButton className="transform transition hover:scale-105">
                   Ver servicios <FiChevronRight className="ml-2" />
                 </SecondaryButton>
@@ -48,7 +48,7 @@ const Header = () => {
             </div>
 
             <div className="mt-4">
-              <a
+              <a  
                 href={`https://wa.me/${siteConfig.whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"

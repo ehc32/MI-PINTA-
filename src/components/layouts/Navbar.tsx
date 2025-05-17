@@ -2,9 +2,9 @@
 
 import { useState } from "react"
 import {  FiMenu, FiUser, FiX } from "react-icons/fi"
-import { navigationLinks, siteConfig } from "../../services/backup-data"
 import logo from "../../assets/image2.png"
 import { Link } from "react-router-dom"
+import { navigationLinks, siteConfig } from "../../services/data/site-config"
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -60,12 +60,12 @@ const Navbar = () => {
         
             {/* Enlace de Login */}
             <Link
-              to="/sign-in"
+              to="/Nosotros"
               className="flex items-center gap-x-2 font-medium hover:text-blue-600 lg:border-s lg:border-black/[.3] lg:my-6 lg:ps-6"
               onClick={() => setIsMenuOpen(false)}
             >
               <FiUser className="flex-shrink-0 w-4 h-4" />
-              Contacto
+              Nosotros
             </Link>
           </div>
         </div>

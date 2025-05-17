@@ -127,7 +127,6 @@ export default function ServicesPage() {
                       {/* Badge de precio */}
                       <div className="absolute top-4 right-4">
                         <PriceDisplay
-                          currentPrice={service.cost}
                           oldPrice={service.oldCost}
                           discount={service.discount}
                           size="medium"
@@ -175,9 +174,7 @@ export default function ServicesPage() {
 
                       <div className="flex flex-col sm:flex-row gap-3">
                         <a
-                          href={`https://wa.me/${whatsappNumber}?text=Hola, me interesa el servicio ${service.title}${
-                            service.cost !== undefined ? ` (${service.cost.toLocaleString("es-CO")})` : ""
-                          }. ¿Podrían darme más información?`}
+                          href={`https://wa.me/${whatsappNumber}?text=Hola, me interesa el servicio ${service.title} ¿Podrían darme más información?`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex-1 inline-flex justify-center items-center px-4 py-2 text-sm font-medium text-white bg-green-500 hover:bg-green-600 rounded-lg shadow transition-all duration-300 hover:shadow-lg"

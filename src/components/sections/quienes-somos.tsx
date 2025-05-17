@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { FiUsers, FiMapPin, FiMail, FiPhone, FiAward, FiTool, FiMessageCircle } from "react-icons/fi"
+import { FiUsers, FiMapPin, FiMail, FiPhone, FiAward, FiMessageCircle } from "react-icons/fi"
 import logo from "../../assets/image2.png"
 
 const QuienesSomos = () => {

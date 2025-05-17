@@ -186,7 +186,6 @@ const ServiceDetails: React.FC<ServiceDetailsProps> = ({ serviceId }) => {
             {/* Precio con descuento */}
             <div className="mb-4">
               <PriceDisplay
-                currentPrice={service.cost}
                 oldPrice={service.oldCost}
                 discount={service.discount}
                 size="large"
@@ -295,9 +294,7 @@ const ServiceDetails: React.FC<ServiceDetailsProps> = ({ serviceId }) => {
             {/* Botón de WhatsApp */}
             <div className="mb-8">
               <a
-                href={`https://wa.me/${whatsappNumber}?text=Hola, me interesa el servicio ${service.title}${
-                  service.cost !== undefined ? ` (${service.cost.toLocaleString("es-CO")})` : ""
-                }. ¿Podrían darme más información?`}
+                href={`https://wa.me/${whatsappNumber}?text=Hola, me interesa el servicio ${service.title} ¿Podrían darme más información?`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center px-6 py-4 text-lg font-medium text-white bg-green-500 hover:bg-green-600 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
